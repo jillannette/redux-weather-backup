@@ -4,7 +4,7 @@ import weatherReducer from './weatherReducer'
 import forecastReducer from './forecastReducer'
 
 const rootReducer = combineReducers({
-  city: cityReducer,
+  
   weatherList: weatherReducer,
   forecastList: forecastReducer
 })

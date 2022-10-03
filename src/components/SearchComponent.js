@@ -14,9 +14,10 @@ const SearchComponent = () => {
     dispatch(getWeatherList(cityName))
   }
 
-  const handleInput = (e) => {
+  const handleInput = () => {
     return (
     setQuery(query))
+    
   }
 
    return (
