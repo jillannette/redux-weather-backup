@@ -1,7 +1,8 @@
 import React from 'react';
 import Header from './containers/HeaderComponent'
-import SearchComponent from './components/SearchComponent'
-// import DisplayComponent from './components/DisplayComponent'
+import WeatherSearch from './components/WeatherSearch'
+import ShowWeather from './components/ShowWeather'
+
 import './App.css';
 import './index.css';
 
@@ -14,8 +15,9 @@ function App () {
     </div>
     <br></br>
     <div>
-    <SearchComponent />
-    {/* <DisplayComponent /> */}
+    <WeatherSearch />
+    <ShowWeather />
+   
     
     </div>
     

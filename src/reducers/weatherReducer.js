@@ -1,37 +1,20 @@
-import {SET_CITY, SET_WEATHER_RESULT, WEATHER_ERROR} from '../types';
-
-const initialState = {
-  weatherList: [],
-  loading: true
-}
+import {SET_WEATHER_LIST, WEATHER_ERROR} from '../types';
 
 
-const weatherReducer = (state = initialState, action) => {
-  console.log(state, action)
+const weatherReducer = (state = [], action) => {
   switch(action.type) {
-    case SET_CITY:
-      return {
-        ...state, 
-        city: action.city,
-      }
-    case SET_WEATHER_RESULT:
+    case SET_WEATHER_LIST:
       return {
         ...state,
-        city: action.city,
-        weatherList: action.weatherList,
-        loading: true
+        weatherList: [action.weatherList]
       }
-    
     case WEATHER_ERROR:
       return {
-        loading: false,
         error: 'No results found'
       }
       default: 
       return state
-        
   }
-  
-}
+};
 
-export default weatherReducer;
+export default weatherReducer; 
