@@ -5,27 +5,42 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 
 const ShowWeather = () => {
-  const result = useSelector((state) => state.weather.data);
+  const state = useSelector((state) => state.weather);
   
-  return (<div>
-    {result.map((data) => {
+  const renderWeather = () => {
+    if (state.loading) {
+      return <h2>Loading</h2>
+    }
+  
+  return state.data.map((el) => {
       return (
       <Container>
       <Row>         
-          <Col>{data.name}</Col>
-          <Col>{data.main.temp}</Col>
-          <Col>{data.main.pressure}</Col>
-          <Col>{data.main.humidity}</Col>
+          <Col>{el.name}</Col>
+          <Col>{el.main.temp}</Col>
+          <Col>{el.main.pressure}</Col>
+          <Col>{el.main.humidity}</Col>
         </Row>
         </Container>
-     
+      )})
+  }
+           
+      return (
+        <div>
+          {renderWeather()}
+          </div>
       )
-    })}
-    
-     </div>
-    
-  )
-}
+    }
+
+  
+  
+   
+  
+  
+  
+  
+  
+
  
       
   export default ShowWeather;

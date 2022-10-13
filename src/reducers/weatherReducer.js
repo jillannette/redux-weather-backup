@@ -1,5 +1,7 @@
 const initialState = {
   data: [],
+  loading: false,
+  error: null,
 }
    
 
@@ -7,14 +9,24 @@ const initialState = {
 const weatherReducer = (state = initialState, action) => {
   console.log('my reducer ran')
   switch(action.type) {
-    case 'GET_WEATHER_DATA':
+    case 'GET_WEATHER_DATA_REQUEST':
       return {
         ...state,
-        data: action.payload, 
+        loading: true,
+        error: null,
       }
-    case 'WEATHER_ERROR':
+    case 'GET_WEATHER_DATA_SUCCESS':
       return {
-        error: 'No results found'
+        ...state, 
+        loading: false,
+        data: [action.payload],
+      }
+    case 'GET_WEATHER_DATA_FAILURE':
+      return {
+        ...state,
+        loading: false,
+        error: action.error,
+        data: [],
       }
       default: 
       return state
