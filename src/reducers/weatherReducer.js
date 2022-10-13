@@ -1,14 +1,18 @@
-import {SET_WEATHER_LIST, WEATHER_ERROR} from '../types';
+const initialState = {
+  data: [],
+}
+   
 
 
-const weatherReducer = (state = [], action) => {
+const weatherReducer = (state = initialState, action) => {
+  console.log('my reducer ran')
   switch(action.type) {
-    case SET_WEATHER_LIST:
+    case 'GET_WEATHER_DATA':
       return {
         ...state,
-        weatherList: [action.weatherList]
+        data: action.payload, 
       }
-    case WEATHER_ERROR:
+    case 'WEATHER_ERROR':
       return {
         error: 'No results found'
       }
