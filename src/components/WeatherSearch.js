@@ -11,10 +11,9 @@ const WeatherSearch = () => {
     setInputValue(event.target.value);
   }
 
-  console.log(inputValue)
-
   const fetchWeatherData = () => {  
     dispatch(getWeatherData(inputValue))
+    setInputValue('')
      
   }
 

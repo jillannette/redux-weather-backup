@@ -19,7 +19,7 @@ const App = () => {
       <WeatherSearch />
       <div>
       <Container>
-        <Row>
+        <Row id='city-col'>
           <Col><strong>City Name</strong></Col>
           <Col><strong>Temperature (F)</strong></Col>
           <Col><strong>Pressure (hPa)</strong></Col>

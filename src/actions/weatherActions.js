@@ -7,16 +7,17 @@ export const getWeatherData = (inputValue) => async (dispatch) => {
   dispatch({ type: 'GET_WEATHER_DATA_REQUEST' })
   try {
     const result = await axios.get(
-      `${base_url}weather?&q=${inputValue}&units=imperial&appid=${api_key}`
+      `${base_url}forecast?&q=${inputValue}&units=imperial&appid=${api_key}`
       );
-    dispatch({ type: 'GET_WEATHER_DATA_SUCCESS', payload: result.data })
+    dispatch({ type: 'GET_WEATHER_DATA_SUCCESS', payload: result.data.list})
+    dispatch({ type: 'SHOW_FORECAST', payload: forecast})
+   
   } catch (error) {
     dispatch({ type: 'GET_WEATHER_DATA_FAILURE', payload: error })
     alert('No data found')
     
   }
-  //console.log(result.data)
-  }
+}
   
  
    
