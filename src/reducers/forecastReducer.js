@@ -1,25 +1,21 @@
-// const initialState = {
-//   forecast: [],
-//   loading: true,
-// };
+import {SHOW_FORECAST} from '../actions/weatherActions'
 
+const initialState = {
 
-// const forecastReducer = (state = initialState, action) => {
-//   switch(action.type) {
-//     case 'SET_FORECAST_RESULT':
-//       return {
-//         forecast: [action.payload],
-//         loading: false
-//       }
-//       case 'FORECAST_ERROR':
-//         return {
-//           loading: false,
-//           error: 'No results found'
-//         }
-//         default: 
-//         return state
-//   }
-// }
+    forecast:[]
+}
 
-// export default forecastReducer;
+export default function showForecast(state = initialState, action){
+  console.log('my forecast reducer ran')
+  console.log(action.forecast)
+     switch (action.type){
+        case SHOW_FORECAST :
+          return { 
+             ...state,
+             forecast:[...state.forecast, action.newItem]
+             
+            }
 
+        default:return state
+     }
+}

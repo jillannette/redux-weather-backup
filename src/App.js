@@ -1,7 +1,7 @@
 import React from 'react'
 import Header from './containers/HeaderComponent'
 import WeatherSearch from './components/WeatherSearch'
-import ShowWeather from './components/ShowWeather'
+import ShowForecast from './components/ShowForecast'
 import './App.css';
 import './index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -27,7 +27,7 @@ const App = () => {
         </Row>
        
         </Container>
-      <ShowWeather />
+      <ShowForecast />
     </div>
     </div>
     </>
