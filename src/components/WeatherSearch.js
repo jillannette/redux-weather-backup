@@ -8,14 +8,13 @@ const WeatherSearch = () => {
   const [inputValue, setInputValue] = useState('');
 
   const onChangeHandler = (event) => {
-    setInputValue(event.target.value);
-  }
+    setInputValue(event.target.value)
+  };
 
   const fetchWeatherData = () => {  
     dispatch(getWeatherData(inputValue))
     setInputValue('')
-     
-  }
+  };
 
   return (
     <div className="input">
@@ -28,6 +27,6 @@ const WeatherSearch = () => {
         <button onClick={fetchWeatherData}>Search</button> 
       </div>
   );
-}
+};
  
-export default WeatherSearch
+export default WeatherSearch;

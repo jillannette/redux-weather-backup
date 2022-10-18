@@ -1,43 +1,22 @@
-import { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { showForecast } from '../actions/weatherActions'
-import 'bootstrap/dist/css/bootstrap.min.css';
+import { useSelector } from 'react-redux'
+import CityRow from './CityRow'
 import Container from 'react-bootstrap/Container'
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
-
 
 const ShowForecast = () => {
-  
-const city = useSelector((state) => state.inputValue)
-const dispatch = useDispatch();
-
-
-  // const tempAvg = forecast.tempAvg = Math.floor(average(forecast.tempList));
-  // const pressureAvg = forecast.pressureAvg = Math.floor(average(forecast.pressureList));
-  // const humidityAvg = forecast.humidityAvg = Math.floor(average(forecast.humidityList));
-
-useEffect(() => {
-  dispatch(showForecast())
-  }, [dispatch]
-)
-
-
+  const {loading, data } = useSelector((state) => state.weather)
+ 
   return (
-        
-    
-        <div>
-          <Container>
-            <Row>
-              <Col>{city}</Col>
-              {/* <Col>{tempAvg}</Col>
-              <Col>{pressureAvg}</Col>
-              <Col>{humidityAvg}</Col> */}
-              
-            </Row>
-          </Container>
-        </div>
-  )
-  }
-
+    <Container className="row">
+      {data.length > 0 && (
+      <>
+        {data.map((item) => {
+          return <CityRow cityName={item.cityName.toUpperCase()} data={item.forecast}/>
+          }
+        )}
+        </>
+      )}
+    </Container>
+  );       
+};
+   
 export default ShowForecast;

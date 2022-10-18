@@ -18,8 +18,8 @@ const App = () => {
     <div>
       <WeatherSearch />
       <div>
-      <Container>
-        <Row id='city-col'>
+      <Container className='header-labels'>
+        <Row>
           <Col><strong>City Name</strong></Col>
           <Col><strong>Temperature (F)</strong></Col>
           <Col><strong>Pressure (hPa)</strong></Col>
