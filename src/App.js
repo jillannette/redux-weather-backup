@@ -1,5 +1,5 @@
 import React from 'react'
-import Header from './containers/HeaderComponent'
+import Header from './containers/Header'
 import WeatherSearch from './components/WeatherSearch'
 import ShowForecast from './components/ShowForecast'
 import './App.css';
@@ -31,12 +31,7 @@ const App = () => {
     </div>
     </div>
     </>
-  )
-}   
-  
-
+  );
+};   
 
 export default App;
-   
-
-

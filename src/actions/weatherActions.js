@@ -14,10 +14,9 @@ export const getWeatherData = (inputValue) => async (dispatch, getState) => {
       `${base_url}forecast?&q=${inputValue}&units=imperial&appid=${api_key}`
       );
       dispatch({ type: 'GET_WEATHER_DATA_SUCCESS', payload: {cityName: inputValue, forecast: result.data.list}})
-      console.log('++++',result.data.list)
-   } catch (error) {
+    } catch (error) {
     dispatch({ type: 'GET_WEATHER_DATA_FAILURE', payload: error })
     alert('No data found')
     
-  }
-}
+  };
+};
